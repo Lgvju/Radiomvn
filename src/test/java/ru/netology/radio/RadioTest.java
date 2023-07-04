@@ -65,6 +65,7 @@ public class RadioTest {
         Assertions.assertEquals(expected, actual);
     }
 
+
 //тесты по next :-1,0,1,6,8,9,10
 
    @Test
@@ -279,7 +280,7 @@ public void currentNotVolumeMin() {
     }
 //reduce volume -
     @Test
-    public void shouldDownCurrentVolumeZero() {
+    public void downCurrentVolumeZero() {
         Radio radio = new Radio();
 
         radio.setCurrentVolume(0);

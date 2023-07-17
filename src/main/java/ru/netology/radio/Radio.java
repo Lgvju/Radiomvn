@@ -1,31 +1,27 @@
 package ru.netology.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
-    private int maxStation =9;
-    private int minStation = 0 ;
+    private int maxStation = 9;
+    private int minStation = 0;
     private int currentStation;
     private int maxVolume = 100;
     private int minVolume = 0;
     private int currentVolume;
-    public Radio(){
 
-        this.maxStation = maxStation;
-        this.minStation = minStation;
-        this.currentStation = currentStation;
 
+
+    public Radio(int stationCount) {
+        maxStation = stationCount - 1;
     }
 
-    public Radio(int stationCount){
-        maxStation = stationCount-1;
-    }
-
-    public int getMaxStation(){
-        return maxStation;
-    }
-    public int getMinStation(){
-
-        return minStation;
-    }
     public void next() {
         if (currentStation != maxStation) {
             currentStation++;
@@ -41,6 +37,30 @@ public class Radio {
             currentStation = maxStation;
         }
     }
+
+    public void increaseVolume() {
+        if (currentVolume < maxVolume) {
+            currentVolume = currentVolume + 1;
+        }
+    }
+
+    public void reduceVolume() {
+        if (currentVolume > minVolume) {
+            currentVolume = currentVolume - 1;
+        }
+    }
+}
+
+
+ /*
+    public int getMaxStation(){
+        return maxStation;
+    }
+    public int getMinStation(){
+
+        return minStation;
+    }
+
 
     public int getCurrentStation() {
 
@@ -70,18 +90,7 @@ public class Radio {
         }
         currentVolume = newCurrentVolume;
     }
+}*/
 
-    public void increaseVolume() {
-        if (currentVolume < maxVolume) {
-            currentVolume = currentVolume + 1;
-        }
-    }
-
-    public void reduceVolume() {
-        if (currentVolume > minVolume) {
-            currentVolume = currentVolume - 1;
-        }
-    }
-}
 
 

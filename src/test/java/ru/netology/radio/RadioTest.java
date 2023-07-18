@@ -13,10 +13,10 @@ public class RadioTest {
         Radio radio = new Radio(10);
         Assertions.assertEquals(9, radio.getMaxStation());
     }
-
+    @Test
     public void testRadio2() {
         Radio radio = new Radio(10);
-        Assertions.assertEquals(9, radio.getMinStation());
+        Assertions.assertEquals(0, radio.getMinStation());
     }
         @Test
 

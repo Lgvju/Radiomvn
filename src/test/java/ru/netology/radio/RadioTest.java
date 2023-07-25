@@ -37,6 +37,7 @@ public class RadioTest {
             int actual = radio.getCurrentStation();
             Assertions.assertEquals(expected, actual);
         }
+        
         @Test
         public void currentStation1 () {
             radio.setCurrentStation(1);

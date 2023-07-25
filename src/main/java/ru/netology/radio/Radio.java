@@ -1,13 +1,26 @@
 package ru.netology.radio;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
-    //завести два поля -номер текущей радиостанции и громкость звука
+    private int maxStation = 9;
+    private int minStation = 0;
     private int currentStation;
-    //условие -номер текущей станции от 0 до 9, исп методы next,prev,
-    //номер станции также выставляется через прямое указание номера - метод-сеттер( с проверкой на допусимость номера станции)
+    private int maxVolume = 100;
+    private int minVolume = 0;
     private int currentVolume;
-    // условие для звука - увеличение и уменьшение громкости - еще  плюс два метода - увеличения и уменьшения звука + метод сеттер для прямой настройки(записи объекта)
-    // вопрос - зачем нужны методы геттер - получение значения объекта
+
+    public Radio(int stationCount) {
+
+        maxStation = stationCount - 1;
+    }
+
     public void next() {
         if (currentStation != 9) {
             currentStation++;
@@ -17,49 +30,21 @@ public class Radio {
     }
 
     public void prev() {
-        if (currentStation != 0) {
+        if (currentStation != minStation) {
             currentStation--;
         } else {
-            currentStation = 9;
+            currentStation = maxStation;
         }
-    }
-
-    public int getCurrentStation() {
-        return currentStation;
-    }
-
-    public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < 0) {
-            return;
-        }
-        if (newCurrentStation > 9) {
-            return;
-        }
-       currentStation = newCurrentStation;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume < 0) {
-            return;
-        }
-        if (newCurrentVolume > 100) {
-            return;
-        }
-        currentVolume = newCurrentVolume;
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void reduceVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
     }

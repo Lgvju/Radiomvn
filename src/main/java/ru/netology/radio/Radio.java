@@ -28,6 +28,7 @@ public class Radio {
             currentStation = 0;
         }
     }
+
     public void prev() {
         if (currentStation != minStation) {
             currentStation--;
